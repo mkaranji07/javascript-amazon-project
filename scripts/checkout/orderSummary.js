@@ -1,8 +1,8 @@
-import {cart, removeFromCart, calculateCartQuantity, 
-  updateDeliveryOption} from '../../data/cart.js';
+import {cart, removeFromCart, calculateCartQuantity, updateDeliveryOption} from '../../data/cart.js';
 import {products, getProduct} from '../../data/products.js';
 import { formatCurrency } from '../utils/money.js';
 import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOption.js';
+import { renderPaymentSummary } from './paymentSummary.js';
 
 export function renderOrderSummary() {
 let cartSummaryHTML = '';
@@ -126,7 +126,8 @@ const container = document.querySelector(`.js-cart-item-container-${productId}`)
 container.remove();
 
 updateCartQuantity();
-})
+renderPaymentSummary();
+});
 });
 
 document.querySelectorAll('.js-delivery-option')
@@ -135,6 +136,7 @@ document.querySelectorAll('.js-delivery-option')
     const {productId, deliveryOptionId} = element.dataset;
     updateDeliveryOption(productId, deliveryOptionId);
     renderOrderSummary();
+    renderPaymentSummary();
   });
 });
 

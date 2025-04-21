@@ -63,6 +63,8 @@ export function calculateCartQuantity () {
   return cartQuantity;
 }
 
+
+
 export function updateDeliveryOption(productId, deliveryOptionId) {
   let matchingItem;
 
