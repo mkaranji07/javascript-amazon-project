@@ -151,4 +151,3 @@ document.querySelector('.js-return-to-home-link')
 updateCartQuantity();
 }       
 
-renderOrderSummary();
